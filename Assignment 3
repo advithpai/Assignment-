@@ -1,0 +1,558 @@
+Zero Converter:
+
+You are given a number n. The number n can be negative or positive. If n is
+
+negative, print numbers from n to 0 by adding 1 to n in the neg function. If
+
+positive, print numbers from n-1 to 0 by subtracting 1 from n in the pos function.
+
+Note:- You don't have to return anything, you just have to print the array.
+
+Example 1:
+
+Input:
+
+n = 0
+
+Output:
+
+already Zero
+
+Example 2:
+
+Input:
+
+n = 4
+
+Output:
+
+3 2 1 0
+
+Example 3:
+
+Input:
+
+n = -3
+
+Output:
+
+-3 -2 -1 0
+
+Your Task:
+
+This is a function problem. You need to take input of test cases. Just complete
+
+the functions pos() and neg().
+
+Constraints:
+
+-103 <= x <= 103
+
+code:
+1.class Main {
+
+public static void pos(int n)
+
+{
+
+int k=0;
+
+int a[]=new int[10];
+
+for(int i=n-1;i>=0;i--)
+
+{
+
+a[k]=i;
+
+k++;
+
+}
+
+for(int b=0;b<=n-1;b++)
+
+{
+
+System.out.print(a[b]);
+
+System.out.print("\t");
+
+}
+
+}
+
+public static void neg(int n)
+
+{
+
+int k=0;
+
+int a[]=new int[10];
+
+for(int i=n;i<=0;i++)
+
+{
+
+a[k]=i;
+
+k++;
+
+}
+
+for(int b=0;b<k;b++)
+
+{
+
+System.out.print(a[b]);
+
+System.out.print("\t");
+
+}
+
+}
+
+public static void main(String[] args) {
+
+int n=-3;
+
+if(n==0)
+
+System.out.print("Already zero");
+
+else if(n>0)
+
+pos(n);
+
+else if(n<0)
+
+neg(n);
+
+}
+
+}
+
+Write a simple ATM Program to display the following options and perform
+
+the user-selective operation until the user exits from the program.
+
+· Initial account pin is 1234 and the balance of the user is 0.Read the PIN from the user and if it matches then print and execute
+
+the following operations as per user selection.
+
+1. Deposit
+
+2. Withdraw
+
+3. Balance enquiry
+
+4. PIN change
+
+5. Exit
+
+· Return the total available balance after the deposit.
+
+· Return the total available balance after the withdrawal.
+
+· Return the total available balance after the Balance check.
+
+· Return “PIN Change” after the pin change operation.
+
+Transaction(1) : input: 5000 output:5000
+code:
+2. import java.util.Scanner;
+
+class HelloWorld {
+
+static int deposit=0,a=0;
+public static int deposit()
+
+{
+
+int amt;
+
+Scanner sc=new Scanner(System.in);
+
+System.out.print("Enter amount to deposit:");
+
+amt=sc.nextInt();
+
+deposit=deposit+amt;
+
+return deposit;
+
+}
+
+public static int withdrawal()
+
+{
+
+int amt;
+
+Scanner sc=new Scanner(System.in);
+
+System.out.print("Enter amount to be withdrwan:");
+
+amt=sc.nextInt();
+
+if(deposit>amt)
+
+{
+
+a=deposit-amt;
+
+return a;
+
+}
+
+else
+
+return deposit;
+
+}
+
+public static int balanceenquiry()
+
+{
+
+return a;
+
+}
+
+public static int pinchange()
+
+{
+
+int pin=1234,pin1;
+
+Scanner sc=new Scanner(System.in);
+
+System.out.print("Enter the pin:");
+
+pin1=sc.nextInt();
+
+if(pin1==pin)
+
+{
+
+System.out.print("Enter new pin:");
+
+pin1=sc.nextInt();
+
+System.out.print("Enter pin again:");
+
+int pin2=sc.nextInt();
+
+if(pin1==pin2)
+
+{
+
+System.out.print("Pin changed successfully to :");
+
+return pin1;
+
+}
+else
+
+{
+
+System.out.print("Pin didnt match Retry:");
+
+}
+
+}
+
+else
+
+{
+
+System.out.print("Incorrect pin Retry:");
+
+}
+
+return pin;
+
+}
+
+public static void main(String[] args) {
+
+Scanner sc=new Scanner(System.in);
+
+int pin=1234;
+
+System.out.print("Enter the pin:");
+
+int pin1=sc.nextInt();
+
+if(pin==pin1)
+
+{
+
+while(true)
+
+{
+
+System.out.print("1.Deposit\n");
+
+System.out.print("2.Withdrawal\n");
+
+System.out.print("3.Balance Enquiry\n");
+
+System.out.print("4.PIN Change\n");
+
+System.out.print("5.Exit\n");
+
+System.out.print("Enter your choice:");
+
+int choice=sc.nextInt();
+
+switch(choice)
+
+{
+
+case 1:System.out.print(deposit());
+
+System.out.print("\n");
+
+break;
+
+case 2:System.out.print(withdrawal());
+
+System.out.print("\n");
+
+break;
+
+case 3:System.out.print(balanceenquiry());
+
+System.out.print("\n");
+
+break;
+
+case 4:System.out.print(pinchange());
+
+System.out.print("\n");
+
+break;
+
+case 5:System.exit(0);
+
+}
+
+}}
+
+}
+
+}
+
+Problem No.3
+Given two int values a and b. Check a and b are primes are not. If a and b are
+primes then check if the sum of a and b is a prime or not. If the prime returns
+true. Else return false.
+SumPrime(2,3) —> true.
+SumPrime(7,11) —> true.
+SumPrime(3,7) —> false
+SumPrime(8,11) → false
+
+3.class Main
+
+{
+
+public static void main(String args[])
+
+{
+
+int a=3,b=7;
+
+int flaga=0,flagb=0,flagc=0;
+
+for(int i=2;i<=a/2;i++)
+
+if(a%i==0)
+
+{
+
+flaga=1;
+
+}
+
+for (int c=2;c<=b/2;c++)
+
+if(b%c==0)
+
+{
+
+flagb=1;
+
+}
+
+if(flaga==0 && flagb==0)
+
+{
+
+int sum=a+b;
+
+for(int i=2;i<=sum/2;i++)
+
+if(sum%i==0)
+
+{
+
+flagc=1;
+
+}
+
+if(flagc==1)
+
+System.out.print("False");
+
+else
+
+System.out.print( "True");
+
+}
+
+}
+
+}
+Problem No.4
+
+Given a string and a non-negative int n, return a larger string that is n copies of the
+
+original string.
+
+stringTimes("Hi", 2) → "HiHi"
+stringTimes("Hi", 3) → "HiHiHi"
+
+stringTimes("Hi", 1) → "Hi"
+code:
+}
+
+4.class string
+
+{
+
+public static String stringtimes(String a,int n)
+
+{
+
+StringBuilder b=new StringBuilder();
+
+for(int i=1;i<=n;i++)
+
+{
+
+b.append(a);
+
+}
+
+return b.toString();
+}
+
+public static void main(String args[])
+
+{
+
+int n=3;
+
+System.out.print(stringtimes("Hi",n));
+
+}
+
+}
+
+5.
+We use the integers a, b, and n to create the following series:
+
+(a+2^0 *b), (a+2^0 *b+2^1*b), (a+2^0 *b+2^1*b +2^2*b), …… (a+2^0 *b+2^1*b+2^2*b+.... + 2^n-1 *
+
+b)
+
+You are given q queries in the form of a, b, and n. For each query, print the series corresponding to
+
+the given a, b, and n values as a single line of space-separated integers.
+
+Input Format: The first line contains an integer, q denoting the number of queries.
+
+Each line i of the q subsequent lines contains three space-separated integers describing the
+
+respective ai, bi, ni, and values for that query.
+
+Constraint:
+
+0<=q<=500
+
+0<=a,b<=50
+
+0<=n<=15
+
+Output Format
+
+For each query, print the corresponding series on a new line. Each series must be printed in order as
+
+a single line of space-separated integers.
+
+Sample Input
+
+2
+
+0 2 10
+
+5 3 5
+Sample Output
+
+2 6 14 30 62 126 254 510 1022 2046
+
+8 14 26 50 98
+code:
+5.import java.util.Scanner;
+
+class Maths{
+
+public static void main(String args[]){
+
+Scanner sc=new Scanner(System.in);
+
+System.out.println("Enter no.of queries and a,b and n: ");
+
+int q=sc.nextInt();
+
+int ar[]=new int[q];
+
+int br[]=new int[q];
+
+int nr[]=new int[q];
+
+for(int i=0;i<q;i++){
+
+ar[i]=sc.nextInt();
+
+br[i]=sc.nextInt();
+
+nr[i]=sc.nextInt();
+
+}
+
+for(int j=0;j<q;j++){
+
+seriesprint(ar[j],br[j],nr[j]);
+
+System.out.println();
+
+}
+
+}
+
+public static void seriesprint(int a,int b,int n){
+
+double res=a;
+
+for(int i=0;i<n;i++){
+
+res=res+Math.pow(2,i)*b;
+
+System.out.print((int)res+" ");
+
+}
+
+}
+
+}
