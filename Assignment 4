@@ -1,0 +1,756 @@
+Problem No. 1
+
+We use the integers a, b, and n to create the following series:
+
+(a+2^0 *b),(a+2^0 *b+2^1*b) , (a+2^0 *b+2^1*b +2^2*b), ……
+
+(a+2^0 *b+2^1*b+2^2*b+....+2^n-1 * b)
+
+You are given a, b, and n . For given a, b, and n print the series of
+
+numbers.
+
+Constraint:
+
+0<=a,b<=50
+
+0<=n<=15
+
+Output Format
+
+print the corresponding series on a new line.
+
+Sample Input
+
+5 3 5
+
+Sample Output
+
+8 14 26 50 98
+
+
+
+Problem No: 02
+
+Given integer x. Write a code to print its reverse.
+
+ReverseOfx(123) → 321
+
+ReverseOfx(-123) → -321
+
+ReverseOfx(406) → 604.
+
+
+
+Problem No: 03
+
+Given positive integer x. Write a program to print a Binary number of
+
+x.
+
+BinaryNum(23) → 10111
+
+BinaryNum(124) → 1111100
+
+BinaryNum(234) → 11101010
+
+
+Problem No: 04
+
+Write a program to implement the following Bus Ticket scenario.
+
+Read From stage number and To stage number.
+
+Read the number of adult and children passengers.
+
+Calculate the number of stages they are traveling.
+
+Calculate adult cost @ Rs.10 per passenger per stage.
+
+Calculate child cost @ Rs.5 per passenger per stage.
+
+Find total ticket cost.
+
+Find the discount of the ticket as follows:
+
+If adults>=5 calculate a discount of 20% on ticket cost.
+
+else If adults==4 calculate a discount of 15% on ticket cost.
+
+else If adults==3 calculate a discount of 10% on ticket cost.
+
+else If adults==2 calculate a discount of 5% on ticket cost.
+
+else calculate a discount of 0% on ticket cost.
+
+Then find the ticket cost after discount.
+
+And also find the service charge of 5% on ticket cost.
+
+Find the total ticket cost and display the ticket cost.
+
+
+Problem No: 5.
+
+Given positive integer X. print the nearest prime number to the given
+
+X.
+
+NearesPrime(11) → 11
+
+NearestPrime(25) → 23
+
+NearestPrime(21) → 19 23
+
+NearestPrime(6) → 5 7
+
+
+
+Problem No. 6
+
+Given positive integer X. Find the sum of prime digits of X is a Prime or
+
+not. Return true if it is a prime number. Else return false.
+
+PrimeDigitSum(1234) —> true [ 2+3 = 5]
+PrimeDigitSum(5677) → true [2+7+7 = 19]
+
+PrimeDigitSum(987) —> true [7 = 7]
+
+PrimeDigitSum(3456) → false [3+5 = 8 is not a prime]
+
+
+
+Problem No. 7
+
+Given positive integer X. Print the nearest Armstrong number of given
+
+X.
+
+NearestArmstrong(5) → 5
+
+NearestArmstrong(99) → 153
+
+NearestArmstrong(450) → 407
+
+NearestArmstrong(1600) → 1634
+
+
+Problem No. 8
+
+Given two positive integers X and Y that indicate a range of numbers.
+
+Print the number from the same range which is a fibonacci term and a
+
+prime too. If not print 0.
+
+FibPrime(2,25) → 2 3 5 13
+
+FibPrime(1,100) → 2 3 5 13 89
+
+FibPrime(25, 75) → 0
+
+
+Problem No. 9
+
+Given positive integer X. Check if X is a fibonacci term or not. If it is a
+
+fibonacci term then check if it is a Prime number or not. If it is a Prime
+
+number too, then print X as result. Else print Nearest Fibonacci Prime
+
+number of given X.
+
+FibPrime(29) → 13
+
+FibPrime(79) → 89
+
+FebPrime(13) → 13
+
+
+CODES:
+1.import java.util.Scanner;
+
+public class Series {
+
+public static void main(String[] args) {
+
+Scanner scanner = new Scanner(System.in);
+
+System.out.println("Enter values for a, b, and n:");
+
+int a = scanner.nextInt();
+
+int b = scanner.nextInt();
+
+int n = scanner.nextInt();
+
+printSeries(a, b, n);
+
+}
+
+static void printSeries(int a, int b, int n) {
+
+for (int i = 0; i <= n; i++) {
+
+int term = a;
+
+for (int j = 0; j < i; j++) {
+
+term += Math.pow(2, j) * b;
+
+}
+
+System.out.print(term + " ");
+
+}
+
+}
+
+}
+
+
+2.class Reversenum {
+
+public static void main(String[] args) {
+
+int num=-123;
+
+int rev=0;
+
+int temp=num;
+
+if(num>0)
+
+{
+
+while(num!=0)
+
+{
+
+temp=num%10;
+
+rev=(rev*10)+temp;
+
+num=num/10;
+
+}
+
+System.out.print(rev);
+
+}
+else
+
+{
+
+num=-num;
+
+while(num!=0)
+
+{
+
+temp=num%10;
+
+rev=(rev*10)+temp;
+
+num=num/10;
+
+}
+
+rev=-rev;
+
+System.out.print(rev);
+
+}
+
+}
+
+}
+
+
+3.class numBin {
+
+public static void main(String[] args) {
+
+int num=23,i=0;
+
+int a[]=new int[10];
+
+while(num!=0)
+
+{
+
+int rem=num%2;
+
+num=num/2;
+
+a[i]=rem;
+
+i++;
+
+}
+
+for(i=i-1;i>=0;i--)
+
+System.out.print(a[i]);
+
+}
+
+}
+
+
+4.import java.util.Scanner;
+
+public class BusTicket {
+
+public static void main(String[] args) {
+
+Scanner sc = new Scanner(System.in);
+
+System.out.print("Enter from stage number: ");
+
+int fromStage = sc.nextInt();
+
+System.out.print("Enter to stage number: ");
+
+int toStage = sc.nextInt();
+System.out.print("Enter the number of adult passengers: ");
+
+int adults = sc.nextInt();
+
+System.out.print("Enter the number of children passengers: ");
+
+int children = sc.nextInt();
+
+int numberOfStages = toStage - fromStage;
+
+int adultCostPerStage = 10;
+
+int childCostPerStage = 5;
+
+int totalTicketCost = (adults * adultCostPerStage + children * childCostPerStage) *
+
+numberOfStages;
+
+double discount = 0.0;
+
+if (adults >= 5) {
+
+discount = 0.20;
+
+} else if (adults == 4) {
+
+discount = 0.15;
+
+} else if (adults == 3) {
+
+discount = 0.10;
+
+} else if (adults == 2) {
+
+discount = 0.05;
+
+}
+
+double discountedTicketCost = totalTicketCost - (totalTicketCost * discount);
+
+double serviceCharge = 0.05 * discountedTicketCost;
+
+double totalCostWithServiceCharge = discountedTicketCost + serviceCharge;
+
+System.out.println("\nTotal Ticket Cost: Rs. " + totalCostWithServiceCharge);
+
+}
+}
+
+
+5.public class NearestPrime {
+
+public static void main(String[] args) {
+
+nearestPrime(11);
+
+nearestPrime(25);
+
+nearestPrime(21);
+
+nearestPrime(6);
+
+}
+
+static boolean isPrime(int n) {
+
+if (n <= 1) {
+
+return false;
+
+}
+
+for (int i = 2; i <= Math.sqrt(n); i++) {
+
+if (n % i == 0) {
+
+return false;
+
+}
+
+}
+
+return true;
+
+}
+
+static void nearestPrime(int x) {
+
+int lower = x - 1;
+
+int upper = x + 1;
+
+while (true) {
+
+if (isPrime(lower)) {
+
+System.out.print(lower + " ");
+
+break;
+
+}
+
+if (isPrime(upper)) {
+
+System.out.print(upper + " ");
+
+break;
+
+}
+
+lower--;
+
+upper++;
+
+}
+System.out.println();
+
+}
+
+}
+
+
+6.public class PrimeDigitSum {
+
+public static void main(String[] args) {
+
+System.out.println(PrimeDigitSum(1234));
+
+System.out.println(PrimeDigitSum(5677));
+
+System.out.println(PrimeDigitSum(987));
+
+System.out.println(PrimeDigitSum(3456));
+
+}
+
+public static boolean PrimeDigitSum(int x) {
+
+int sum = 0;
+
+while (x > 0) {
+
+int digit = x % 10;
+
+if (isPrime(digit)) {
+
+sum += digit;
+
+}
+
+x /= 10;
+
+}
+
+return isPrime(sum);
+
+}
+
+public static boolean isPrime(int num) {
+
+if (num <= 1) {
+
+return false;
+
+}
+
+for (int i = 2; i <= Math.sqrt(num); i++) {
+
+if (num % i == 0) {
+
+return false;
+
+}
+
+}
+
+return true;
+
+}
+
+}
+
+
+7.public class NearestArmstrong {
+
+public static void main(String[] args) {
+nearestArmstrong(5);
+
+nearestArmstrong(99);
+
+nearestArmstrong(450);
+
+nearestArmstrong(1600);
+
+}
+
+static boolean isArmstrong(int num) {
+
+int originalNum = num;
+
+int sum = 0;
+
+int numDigits = (int) Math.log10(num) + 1;
+
+while (num > 0) {
+
+int digit = num % 10;
+
+sum += Math.pow(digit, numDigits);
+
+num /= 10;
+
+}
+
+return sum == originalNum;
+
+}
+
+static void nearestArmstrong(int x) {
+
+int lower = x - 1;
+
+int upper = x + 1;
+
+while (true) {
+
+if (isArmstrong(lower)) {
+
+System.out.println(lower);
+
+break;
+
+}
+
+if (isArmstrong(upper)) {
+
+System.out.println(upper);
+
+break;
+
+}
+
+lower--;
+
+upper++;
+
+}
+
+}
+
+}
+
+8.public class FibPrime {
+public static void main(String[] args) {
+
+fibPrime(2, 25);
+
+fibPrime(1, 100);
+
+fibPrime(25, 75);
+
+}
+
+static boolean isPrime(int n) {
+
+if (n <= 1) {
+
+return false;
+
+}
+
+for (int i = 2; i <= Math.sqrt(n); i++) {
+
+if (n % i == 0) {
+
+return false;
+
+}
+
+}
+
+return true;
+
+}
+
+static boolean isFibonacci(int n) {
+
+int a = 0, b = 1;
+
+while (a <= n) {
+
+if (a == n) {
+
+return true;
+
+}
+
+int temp = a + b;
+
+a = b;
+
+b = temp;
+
+}
+
+return false;
+
+}
+
+static void fibPrime(int x, int y) {
+
+for (int i = x; i <= y; i++) {
+
+if (isFibonacci(i) && isPrime(i)) {
+
+System.out.print(i + " ");
+
+}
+
+}
+
+if (isFibonacci(x) && isPrime(x)) {
+
+System.out.println();
+
+} else {
+System.out.println("0");
+
+}
+
+}
+
+}
+
+9.public class FibPrime {
+
+public static void main(String[] args) {
+
+fibPrime(29);
+
+fibPrime(79);
+
+fibPrime(13);
+
+}
+
+static boolean isPrime(int n) {
+
+if (n <= 1) {
+
+return false;
+
+}
+
+for (int i = 2; i <= Math.sqrt(n); i++) {
+
+if (n % i == 0) {
+
+return false;
+
+}
+
+}
+
+return true;
+
+}
+
+static boolean isFibonacci(int n) {
+
+int a = 0, b = 1;
+
+while (a <= n) {
+
+if (a == n) {
+
+return true;
+
+}
+
+int temp = a + b;
+
+a = b;
+
+b = temp;
+
+}
+
+return false;
+
+}
+
+static void fibPrime(int x) {
+
+if (isFibonacci(x)) {
+
+if (isPrime(x)) {
+System.out.println(x);
+
+} else {
+
+int lower = x - 1;
+
+int upper = x + 1;
+
+while (true) {
+
+if (isFibonacci(lower) && isPrime(lower)) {
+
+System.out.println(lower);
+
+break;
+
+}
+
+if (isFibonacci(upper) && isPrime(upper)) {
+
+System.out.println(upper);
+
+break;
+
+}
+
+lower--;
+
+upper++;
+
+}
+
+}
+
+} else {
+
+System.out.println("X is not a Fibonacci term.");
+
+}
+
+}
+
+}
