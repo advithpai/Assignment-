@@ -1,0 +1,382 @@
+1)import java.util.Scanner;
+
+public class array {
+
+public static void main(String args[]){
+
+Scanner sc=new Scanner(System.in);
+
+System.out.println("enter array size: ");;
+
+int n=sc.nextInt();
+
+int a[]=new int[n];
+
+int res[]=new int[2*n];
+
+System.out.println("Enter array elements: ");
+
+for(int i=0;i<n;i++){
+
+a[i]=sc.nextInt();
+
+}
+
+for(int i=0;i<n;i++){
+
+res[i]=a[i];
+
+res[n+i]=a[i];
+
+}
+
+System.out.println("Resultant array is : ");
+
+for(int i=0;i<2*n;i++){
+
+System.out.print(res[i]+" ");
+
+}
+
+}
+
+}
+
+2.import java.util.Scanner;
+
+public class array {
+
+public static void main(String args[]){
+
+Scanner sc=new Scanner(System.in);
+
+System.out.println("Enter array size: ");
+
+int n=sc.nextInt();
+
+int a[]=new int[n];
+
+System.out.println("Enter array elements: ");
+
+for(int i=0;i<n;i++){
+
+a[i]=sc.nextInt();
+
+}
+
+int count=0;
+
+while(true){
+
+count++;
+
+if(min(a)) a=delete(a);
+
+else
+
+a=last(a);
+
+if(a.length==0) break;
+
+}
+
+System.out.println("Number of operations: "+count);
+
+}
+public static boolean min(int a[]){
+
+int min=a[0];
+
+for(int i=0;i<a.length;i++){
+
+if(a[i]<min){
+
+min=a[i];
+
+}
+
+}
+
+if(min==a[0]) return true;
+
+return false;
+
+}
+
+public static int[] last(int a[]){
+
+int a1[]=new int[a.length];
+
+a1[a1.length-1]=a[0];
+
+for(int i=0;i<a.length-1;i++){
+
+a1[i]=a[i+1];
+
+}
+
+return a1;
+
+}
+
+public static int[] delete(int a[]){
+
+int a1[]=new int[a.length-1];
+
+for(int i=0;i<a.length-1;i++){
+
+a1[i]=a[i+1];
+
+}
+
+return a1;
+
+}
+
+}
+
+3.import java.util.Scanner;
+
+public class array{
+
+public static void main(String args[]){
+
+Scanner sc=new Scanner(System.in);
+
+System.out.println("Enter arraysize and m,n");
+
+int size=sc.nextInt();
+
+int m=sc.nextInt();
+
+int n=sc.nextInt();
+
+int arr[]=new int[size];
+
+System.out.println("Enter array elements: ");
+
+for(int i=0;i<size;i++){
+
+arr[i]=sc.nextInt();
+
+}
+
+int [][]result=construct2DArray(arr, m, n);
+
+for(int i=0;i<result.length;i++){
+
+for(int j=0;j<result[0].length;j++){
+
+System.out.print(result[i][j]+" ");
+public static boolean min(int a[]){
+
+int min=a[0];
+
+for(int i=0;i<a.length;i++){
+
+if(a[i]<min){
+
+min=a[i];
+
+}
+
+}
+
+if(min==a[0]) return true;
+
+return false;
+
+}
+
+public static int[] last(int a[]){
+
+int a1[]=new int[a.length];
+
+a1[a1.length-1]=a[0];
+
+for(int i=0;i<a.length-1;i++){
+
+a1[i]=a[i+1];
+
+}
+
+return a1;
+
+}
+
+public static int[] delete(int a[]){
+
+int a1[]=new int[a.length-1];
+
+for(int i=0;i<a.length-1;i++){
+
+a1[i]=a[i+1];
+
+}
+
+return a1;
+
+}
+
+}
+
+
+4.import java.util.Scanner;
+
+public class array {
+
+public static void main(String[] args) {
+
+Scanner sc=new Scanner(System.in);
+
+System.out.println("Enter array size: ");
+
+int n=sc.nextInt();
+
+int nums[]=new int[n];
+
+System.out.println("Enter array elements: ");
+
+for(int i=0;i<n;i++){
+
+nums[i]=sc.nextInt();
+
+}
+
+System.out.println(splitArraySameAverage(nums));
+
+}
+
+public static boolean splitArraySameAverage(int[] nums) {
+
+int sum = 0;
+
+for (int num : nums) {
+
+sum += num;
+
+}
+
+int n = nums.length;
+
+boolean[][] dp = new boolean[sum + 1][n / 2 + 1];
+
+dp[0][0] = true;
+
+for (int num : nums) {
+
+for (int i = sum; i >= num; i--) {
+
+for (int j = 1; j <= n / 2; j++) {
+
+dp[i][j] |= dp[i - num][j - 1];
+
+}
+
+}
+
+}
+for (int i = 1; i <= n / 2; i++) {
+
+if (sum * i % n == 0 && dp[sum * i / n][i]) {
+
+return true;
+
+}
+
+}
+
+return false;
+
+}
+
+}
+
+5)import java.util.Scanner;
+
+public class array {
+
+public static void main(String args[]) {
+
+Scanner sc = new Scanner(System.in);
+
+System.out.println("Enter order of matrix 1: ");
+
+int m1 = sc.nextInt();
+
+int n1 = sc.nextInt();
+
+System.out.println("Enter order of matrix 2: ");
+
+int m2 = sc.nextInt();
+
+int n2 = sc.nextInt();
+
+if (n1 != m2) {
+
+System.out.println("Cannot multiply given matrices!");
+
+} else {
+
+int matrix1[][] = new int[m1][n1];
+
+int matrix2[][] = new int[m2][n2];
+
+System.out.println("Enter matrix1 elements: ");
+
+for (int i = 0; i < m1; i++) {
+
+for (int j = 0; j < n1; j++) {
+
+matrix1[i][j] = sc.nextInt();
+
+}
+
+}
+
+System.out.println("Enter matrix2 elements: ");
+
+for (int i = 0; i < m2; i++) {
+
+for (int j = 0; j < n2; j++) {
+
+matrix2[i][j] = sc.nextInt();
+
+}
+
+}
+
+int res[][] = new int[m1][n2];
+
+for (int i = 0; i < m1; i++) {
+
+for (int j = 0; j < n2; j++) {
+
+for (int k = 0; k < n1; k++) {
+
+res[i][j] += matrix1[i][k] * matrix2[k][j];
+
+}
+
+}
+
+}
+
+System.out.println("Multiplied matrix: ");
+for (int i = 0; i < m1; i++) {
+
+for (int j = 0; j < n2; j++) {
+
+System.out.print(res[i][j] + " ");
+
+}
+
+System.out.println();
+
+}
+
+}
+
+}
+
+}
